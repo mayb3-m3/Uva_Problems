@@ -24,14 +24,11 @@ void solve(){
     for(ll i = 1; i <= t; i++){
         cout << "Case " << i << ": ";
         ll n; cin >> n;
-        ll ans;
+        ll ans = 1;
         for(int i = 0; i < n; i++){
             ll t; cin >> t;
             t *= 35;
-            if(i == 0)
-                ans = t;
-            else
-                ans = ans*t/__gcd(ans,t);
+            ans = ans*t/__gcd(ans,t);
         }
         cout << ans << endl;
     }
