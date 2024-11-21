@@ -27,10 +27,6 @@ void solve(){
         int n; cin >> n;
         if(n == 0)
             break;
-        if(n%2){
-            cout << "Goldbach's conjecture is wrong.\n";
-            continue;
-        }
         int get = false;
         for(int i = 2; i <= n; i++){
             if(vtr[i] && vtr[n-i]){
