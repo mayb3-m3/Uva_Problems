@@ -8,7 +8,6 @@ void solve(){
         string str; cin >> str;
         if(str == "#")
             break;
-        str = "A" + str;
         vtr.push_back(str);
         mx = max(mx, int(str.size()));
     }
@@ -16,16 +15,16 @@ void solve(){
         str = str + string(mx-str.size(), '#');
     int l = vtr.size();
     string ans;
-    unordered_set<char> st{};
-    for(int i = 1; i < mx; i++){
+    unordered_set<char> st;
+    for(int i = 0; i < mx; i++){
         for(int j = 0; j < l-1; j++){
-            int c1 = vtr[j][i-1], c2 = vtr[j][i];
-            int c3 = vtr[j+1][i-1], c4 = vtr[j+1][i];
-            if(c1 == c3 && c1 != '#' && c2 != '#' && c4 != '#'){
-                if(st.find(c2) == st.end())
-                    ans += c2, st.insert(c2);
-                if(st.find(c4) == st.end())
-                    ans += c4, st.insert(c4);
+            char ch1 = vtr[j][i];
+            char ch2 = vtr[j+1][i];
+            if(ch1 != ch2 && ch1 != '#' && ch2 != '#'){
+                if(st.find(ch1) == st.end())
+                    ans += ch1, st.insert(ch1);
+                if(st.find(ch2) == st.end())
+                    ans += ch2, st.insert(ch2);
             }
         }
     }
